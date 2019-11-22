@@ -4,32 +4,23 @@ import os
 import sys
 import time
 import argparse
-import datetime
 import math
-import pickle
 
-
-import torchvision
 import torchvision.transforms as transforms
-from utils.autoaugment import CIFAR10Policy
 
 import torch
 import torch.utils.data as data
 import numpy as np
-import torch.nn as nn
 import torch.optim as optim
 import torch.nn.functional as F
-import torch.backends.cudnn as cudnn
 from torch.autograd import Variable
 
-import bayesian_config as cf
+from config import bayesian_config as cf
 
 from utils.BBBlayers_ import GaussianVariationalInference
 from utils.BayesianModels.Bayesian3Conv3FC import BBB3Conv3FC
 from utils.BayesianModels.BayesianAlexNet import BBBAlexNet
 from utils.BayesianModels.BayesianLeNet import BBBLeNet
-from utils.BayesianModels.BayesianSqueezeNet import BBBSqueezeNet
-
 
 parser = argparse.ArgumentParser(description='PyTorch Bayesian Model Training')
 #parser.add_argument('--lr', default=0.001, type=float, help='learning_rate')
