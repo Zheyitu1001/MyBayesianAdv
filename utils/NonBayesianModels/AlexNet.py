@@ -1,3 +1,4 @@
+import torch
 import torch.nn as nn
 import torch.nn.functional as F
 import numpy as np
@@ -29,12 +30,15 @@ class AlexNet(nn.Module):
             nn.Conv2d(256, 256, kernel_size=3, padding=1),
             nn.ReLU(inplace=True),
             nn.Dropout(p=0.5),
-            nn.MaxPool2d(kernel_size=2, stride=2),
+            nn.MaxPool2d(kernel_size=2 , stride=2),
         )
         self.classifier = nn.Linear(256, num_classes)
 
     def forward(self, x):
         x = self.features(x)
-        x = x.view(x.size(0), -1)
+        x = torch.flatten(x, 1)
         x = self.classifier(x)
         return x
+
+
+

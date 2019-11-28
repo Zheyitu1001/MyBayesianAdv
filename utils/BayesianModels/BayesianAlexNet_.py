@@ -1,7 +1,7 @@
-
+import math
 import torch.nn as nn
-from utils.BBBlayers import BBBConv2d, BBBLinearFactorial, FlattenLayer
-
+from utils.BBBlayers import BBBConv2d, BBBLinearFactorial
+from utils.BBBlayers_ import FlattenLayer
 
 class BBBAlexNet(nn.Module):
     '''The architecture of AlexNet with Bayesian Layers'''

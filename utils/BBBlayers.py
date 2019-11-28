@@ -72,7 +72,6 @@ class BBBLinearFactorial(nn.Module):
     def forward(self, input):
         raise NotImplementedError()
         
-
     def fcprobforward(self, input):
         sig_weight = torch.exp(self.sigma_weight)
         weight = self.mu_weight + sig_weight * self.eps_weight.normal_()
@@ -81,3 +80,5 @@ class BBBLinearFactorial(nn.Module):
         out = F.linear(input, weight, bias)
         kl = kl_.sum() 
         return out, kl
+
+
